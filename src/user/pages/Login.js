@@ -32,7 +32,7 @@ function Login() {
 			},
 			body: JSON.stringify(body),
 		};
-		const url = "http://localhost:3001/api/users/login";
+		const url = "https://fierce-bayou-16322.herokuapp.com/api/users/login";
 		try {
 			const response = await fetch(url, options);
 			const user = await response.json();

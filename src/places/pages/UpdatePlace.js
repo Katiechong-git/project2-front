@@ -24,7 +24,6 @@ function UpdatePlace(props) {
 		);
 	}
 
-
 	const handleSubmit = async (values) => {
 		// This function received the values from the form
 		// The line below extract the two fields from the values object.
@@ -33,7 +32,7 @@ function UpdatePlace(props) {
 			...identifiedPlace,
 			title: title,
 			description: description,
-		}
+		};
 		console.log(body);
 		const options = {
 			method: "PUT",
@@ -43,10 +42,9 @@ function UpdatePlace(props) {
 			},
 			body: JSON.stringify(body),
 		};
-		const url = `http://localhost:3001/api/places/${identifiedPlace.id}`;
+		const url = `https://fierce-bayou-16322.herokuapp.com/api/places/${identifiedPlace.id}`;
 		try {
 			await fetch(url, options);
-			
 		} catch (error) {
 			console.error(error);
 		}

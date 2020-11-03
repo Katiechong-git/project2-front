@@ -16,10 +16,9 @@ const schema = yup.object({
 // It's often beneficial (especially in React) to handle form validation via a library like Formik,
 // isValid and isInvalid props can be added to form controls to manually apply validation styles.
 function NewPlace() {
-
 	const handleSubmit = async (values) => {
-		const userId = localStorage.getItem('_id')
-		console.log(userId)
+		const userId = localStorage.getItem("_id");
+		console.log(userId);
 		// This function received the values from the form
 		// The line below extract the two fields from the values object.
 		const { title, description, address, location, url } = values;
@@ -29,8 +28,7 @@ function NewPlace() {
 			address,
 			location,
 			url,
-			_id: userId
-
+			_id: userId,
 		};
 		console.log(body);
 		const options = {
@@ -41,12 +39,11 @@ function NewPlace() {
 			},
 			body: JSON.stringify(body),
 		};
-		const serverUrl = `http://localhost:3001/api/places/`;
+		const serverUrl = `https://fierce-bayou-16322.herokuapp.com/api/places/`;
 		try {
-		 await fetch(serverUrl, options);
-
+			await fetch(serverUrl, options);
 		} catch (error) {
-			console.log('error here?', error);
+			console.log("error here?", error);
 		}
 	};
 
